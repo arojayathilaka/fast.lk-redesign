@@ -8,12 +8,16 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class LocCatActivity extends AppCompatActivity {
-    Spinner catSp, subCatSp, locSp, subLocSp;
-    ArrayAdapter<String> catAdapter, subCatAdapter, locAdapter, subLocAdapter;
-    int count;
+    private Spinner catSp, subCatSp, locSp, subLocSp;
+    private ArrayAdapter<String> catAdapter, subCatAdapter, locAdapter, subLocAdapter;
+    private Button conBtn;
+    //int count;
+    String[] locationArr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +27,7 @@ public class LocCatActivity extends AppCompatActivity {
         subCatSp = findViewById(R.id.sub_cat_sp);
         locSp = findViewById(R.id.loc_sp);
         subLocSp = findViewById(R.id.sub_loc_sp);
+        conBtn = findViewById(R.id.ok_btn);
 
         catAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.categories));
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -73,31 +78,25 @@ public class LocCatActivity extends AppCompatActivity {
             }
         });
 
-        subLocSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (count ==1){
-                    startActivity(new Intent(getApplicationContext(), SellActivity.class));
-                }
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+//        new CountDownTimer(10000, 1000){
+//
+//            @Override
+//            public void onTick(long l) {
+//
+//            }
+//
+//            @Override
+//            public void onFinish() {
+//                count = 1;
+//            }
+//        }.start();
 
+        conBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SellActivity.class));
             }
         });
-
-        new CountDownTimer(10000, 1000){
-
-            @Override
-            public void onTick(long l) {
-
-            }
-
-            @Override
-            public void onFinish() {
-                count = 1;
-            }
-        }.start();
     }
 }

@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="#eee">
+    android:background="#223348C1"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/ad_iv"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@color/colorAccent"
-        />
+        android:src="@color/colorAccent" />
 
     <TextView
         android:id="@+id/name_tv"
-        android:layout_toRightOf="@+id/ad_iv"
-        android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/ad_iv"
         android:text="Name"
 
         />
 
     <TextView
         android:id="@+id/sub_tv"
-        android:layout_toRightOf="@+id/ad_iv"
-        android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sub"
         android:layout_below="@+id/name_tv"
-        />
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/ad_iv"
+        android:text="Sub" />
 
 </RelativeLayout>

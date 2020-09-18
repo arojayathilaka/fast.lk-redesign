@@ -18,6 +18,9 @@ public class AdsViewActivity extends AppCompatActivity {
     private ListView adListView;
     private Button catBtn, locBtn;
     private Spinner dialogSp, dialog2Sp;
+    String[] vehicleArr, propArr, colomboArr, mataraArr;
+    int dialogSpPos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,20 +29,29 @@ public class AdsViewActivity extends AppCompatActivity {
         adListView = findViewById(R.id.ads_lv);
         catBtn = findViewById(R.id.cat_btn);
         locBtn = findViewById(R.id.loc_btn);
+
         ArrayList<Ad> ads = new ArrayList<>();
 
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Car", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
 
         AdAdapter adAdapter = new AdAdapter(this, R.layout.ad_row, ads);
         adListView.setAdapter(adAdapter);
+
+        vehicleArr = getResources().getStringArray(R.array.vehicles);
+        propArr = getResources().getStringArray(R.array.properties);
+        colomboArr = getResources().getStringArray(R.array.colombo);
+        mataraArr = getResources().getStringArray(R.array.matara);
+
+        catBtn.setText(propArr[0]);
+        locBtn.setText(colomboArr[0]);
 
         catBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,20 +65,34 @@ public class AdsViewActivity extends AppCompatActivity {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 dialogSp.setAdapter(adapter);
 
-
                 dialogSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     ArrayAdapter<String> adapter;
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         if (position == 0){
-                            adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.vehicles));
+                            adapter = new ArrayAdapter<>(AdsViewActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.properties));
                             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             dialog2Sp.setAdapter(adapter);
-                        } else if (position ==1){
-                            adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.properties));
+                            dialogSpPos = 0;
+                        } else if (position == 1){
+                            adapter = new ArrayAdapter<>(AdsViewActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.vehicles));
                             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             dialog2Sp.setAdapter(adapter);
+                            dialogSpPos = 1;
                         }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                dialog2Sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if (dialogSpPos == 0) catBtn.setText(propArr[position]);
+                        else if (dialogSpPos == 1) catBtn.setText(vehicleArr[position]);
                     }
 
                     @Override
@@ -105,14 +131,29 @@ public class AdsViewActivity extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         if (position == 0){
-                            adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.colombo));
+                            adapter = new ArrayAdapter<>(AdsViewActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.colombo));
                             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             dialog2Sp.setAdapter(adapter);
-                        } else if (position ==1){
-                            adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.matara));
+                            dialogSpPos = 0;
+                        } else if (position == 1){
+                            adapter = new ArrayAdapter<>(AdsViewActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.matara));
                             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             dialog2Sp.setAdapter(adapter);
+                            dialogSpPos = 1;
                         }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+                dialog2Sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if (dialogSpPos == 0) locBtn.setText(colomboArr[position]);
+                        else if (dialogSpPos == 1) locBtn.setText(mataraArr[position]);
                     }
 
                     @Override
@@ -132,5 +173,6 @@ public class AdsViewActivity extends AppCompatActivity {
                 builder.create().show();
             }
         });
+
     }
 }

@@ -39,10 +39,13 @@
     <string name="eng_cap_err">Engine capacity is invalid</string>
     <string name="price_err">Price is invalid</string>
     <string name="des_err">Description is required</string>
-    <string name="cat">Choose Category</string>
+    <string name="cat_sel">Choose Category</string>
     <string name="sub_cat">Choose Subcategory</string>
-    <string name="loc">Choose Location</string>
+    <string name="loc_sel">Choose Location</string>
     <string name="sub_loc">Choose Sublocation</string>
+    <string name="con">Continue</string>
+    <string name="cat">Category</string>
+    <string name="loc">Location</string>
     <string-array name="trans">
         <item>Manual</item>
         <item>Automatic</item>
@@ -76,8 +79,8 @@
         <item>Other model</item>
     </string-array>
     <string-array name="categories">
-        <item>Vehicle</item>
         <item>Property</item>
+        <item>Vehicle</item>
         <item>Electronic</item>
         <item>Animals</item>
     </string-array>
