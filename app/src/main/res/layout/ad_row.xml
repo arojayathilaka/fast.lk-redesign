@@ -28,6 +28,15 @@
         android:layout_below="@+id/name_tv"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/ad_iv"
-        android:text="Sub" />
+        android:text="Description" />
+
+    <TextView
+        android:id="@+id/price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sub_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/ad_iv"
+        android:text="Price" />
 
 </RelativeLayout>

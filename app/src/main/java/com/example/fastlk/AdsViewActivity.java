@@ -32,15 +32,15 @@ public class AdsViewActivity extends AppCompatActivity {
 
         ArrayList<Ad> ads = new ArrayList<>();
 
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
-        ads.add(new Ad(R.drawable.ic_launcher_background, "Home", "1000000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
+        ads.add(new Ad(R.drawable.home, "Home", "Houses, Piliyandala", "Rs. 100,000"));
 
         AdAdapter adAdapter = new AdAdapter(this, R.layout.ad_row, ads);
         adListView.setAdapter(adAdapter);

@@ -27,7 +27,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (awesomeValidation.validate()){
-                    Toast.makeText(ForgotPasswordActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgotPasswordActivity.this, "Email is sent!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

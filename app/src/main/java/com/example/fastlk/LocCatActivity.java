@@ -37,11 +37,11 @@ public class LocCatActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    subCatAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.vehicles));
+                    subCatAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.properties));
                     subCatAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     subCatSp.setAdapter(subCatAdapter);
-                } else if (position ==1){
-                    subCatAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.properties));
+                } else if (position == 1){
+                    subCatAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.vehicles));
                     subCatAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     subCatSp.setAdapter(subCatAdapter);
                 }

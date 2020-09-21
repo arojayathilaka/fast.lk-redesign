@@ -4,11 +4,21 @@ public class Ad {
     int image;
     String name;
     String description;
+    String price;
 
-    public Ad(int image, String name, String description) {
+    public Ad(int image, String name, String description, String price) {
         this.image = image;
         this.name = name;
         this.description = description;
+        this.price = price;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public int getImage() {

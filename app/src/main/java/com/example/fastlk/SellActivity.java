@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import java.util.Calendar;
 
 public class SellActivity extends AppCompatActivity {
     private Spinner transSp, fuelTySp, brandSp, modelSp;
+    private ArrayAdapter<String> modelAdapter;
     //EditText modelYrEt, mileageEt, engCapEt, priceEt;
     private Button postAdBtn;
     AwesomeValidation awesomeValidation;
@@ -59,15 +61,31 @@ public class SellActivity extends AppCompatActivity {
         brandAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         brandSp.setAdapter(brandAdapter);
 
-        ArrayAdapter<String> modelAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.models));
-        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        modelSp.setAdapter(modelAdapter);
+        brandSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0){
+                    modelAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.toyota_models));
+                    modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    modelSp.setAdapter(modelAdapter);
+                } else{
+                    modelAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.bmw_models));
+                    modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    modelSp.setAdapter(modelAdapter);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         postAdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (awesomeValidation.validate()){
-                    Toast.makeText(SellActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SellActivity.this, "Ad Posted!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

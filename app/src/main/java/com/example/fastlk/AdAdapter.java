@@ -32,10 +32,12 @@ public class AdAdapter extends ArrayAdapter<Ad> {
         ImageView adIv = convertView.findViewById(R.id.ad_iv);
         TextView nameTv = convertView.findViewById(R.id.name_tv);
         TextView subTv = convertView.findViewById(R.id.sub_tv);
+        TextView priceTv = convertView.findViewById(R.id.price_tv);
 
         adIv.setImageResource(getItem(position).getImage());
         nameTv.setText(getItem(position).getName());
         subTv.setText(getItem(position).getDescription());
+        priceTv.setText(getItem(position).getPrice());
 
         return convertView;
     }

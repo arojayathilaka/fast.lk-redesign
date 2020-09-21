@@ -46,7 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (awesomeValidation.validate()){
-                    Toast.makeText(SignUpActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Sign up Successful!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

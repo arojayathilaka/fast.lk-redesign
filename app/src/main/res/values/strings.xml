@@ -69,13 +69,23 @@
         <item>Honda</item>
         <item>Other brand</item>
     </string-array>
-    <string-array name="models">
+    <string-array name="toyota_models">
         <item>Allion</item>
         <item>Aqua</item>
         <item>Corolla</item>
         <item>Axio</item>
         <item>CHR</item>
         <item>Premio</item>
+        <item>Other model</item>
+    </string-array>
+    <string-array name="bmw_models">
+        <item>120d</item>
+        <item>120i</item>
+        <item>X1</item>
+        <item>X3</item>
+        <item>X5</item>
+        <item>i3</item>
+        <item>i8</item>
         <item>Other model</item>
     </string-array>
     <string-array name="categories">
